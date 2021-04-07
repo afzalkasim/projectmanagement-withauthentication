@@ -15,5 +15,8 @@ export class EmployeesComponent implements OnInit {
   ngOnInit(): void {
     this.employees = this.employeeService.onGet();
   }
+  // onDelete(id: number){
+  //   this.employeeService.onDelete(id);
+  // }
 
 }
