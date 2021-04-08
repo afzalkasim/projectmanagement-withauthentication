@@ -3,22 +3,27 @@
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <div class="form-group">
             <label for="">Id</label>
-            <input type="text" class="form-control" ngModel name="id">    
+            <input type="text" class="form-control" [ngModel]="employee.id" name="id">    
         </div>
         <div class="form-group">
             <label for="">Name</label>
-            <input type="text" class="form-control" ngModel name="name">    
+            <input type="text" class="form-control" [ngModel]="employee.name" name="name">    
         </div>
         <div class="form-group">
             <label for="">Email</label>
-            <input type="email" class="form-control" ngModel name="email">    
+            <input type="email" class="form-control" [ngModel]="employee.email" name="email">    
         </div>
         <div class="form-group">
             <label for="">Contact number</label>
-            <input type="text" class="form-control" ngModel name="contactnumber">    
+            <input type="text" class="form-control" [ngModel]="employee.contactnumber" name="contactnumber">    
+        </div>
+        <div class="form-group">
+            <label for="">Location</label>
+            <input type="text" class="form-control" [ngModel]="employee.location" name="location">    
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Save</button>    
         </div>
     </form>
 </div>
+

@@ -13,10 +13,17 @@ export class EmployeesComponent implements OnInit {
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
-    this.employees = this.employeeService.onGet();
+    this.getAll();
   }
-  // onDelete(id: number){
-  //   this.employeeService.onDelete(id);
-  // }
+  getAll(){
+    this.employeeService.getAll().subscribe((data: Employee[])=>{
+      console.log(data);
+      this.employees=data;
+    })
+  }
+  Delete(id:any){
+    this.employeeService.delete(id).subscribe(data=>{this.getAll();
+    });
+  }
 
 }

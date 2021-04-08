@@ -1,10 +1,18 @@
 {
   "emp": [
     {
+      "id": "1",
+      "name": "afzal",
+      "email": "afzal@gmail.com",
+      "contactnumber": "9994859811",
+      "location": "trichy"
+    },
+    {
       "id": "2",
-      "name": "afzal kasim",
-      "email": "afzalkasim@gmail.com",
-      "contactnumber": "09994859811"
+      "name": "kasim",
+      "email": "kasim@gmail.com",
+      "contactnumber": "3535356758",
+      "location": "chennai"
     }
   ]
 }
