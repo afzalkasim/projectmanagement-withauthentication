@@ -1,0 +1,37 @@
+{
+  "emp": [
+    {
+      "id": "1",
+      "name": "afzal",
+      "email": "afzal@gmail.com",
+      "contactnumber": "9994859811",
+      "location": "trichy"
+    },
+    {
+      "id": "2",
+      "name": "kasim",
+      "email": "kasim@gmail.com",
+      "contactnumber": "3535356758",
+      "location": "chennai"
+    },
+    {
+      "id": "3",
+      "name": "afzal",
+      "email": "afzalkasim@gmail.com",
+      "contactnumber": "4654645546",
+      "location": "madurai"
+    }
+  ],
+  "project": [
+    {
+      "id": "1",
+      "clientname": "afzal",
+      "projectname": "employee",
+      "projecttype": "dgdfg",
+      "projectdescription": "dfgd",
+      "projectmanager": "fghfghfg",
+      "startdate": "2021-04-14",
+      "enddate": "2021-04-22"
+    }
+  ]
+}

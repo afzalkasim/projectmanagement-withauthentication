@@ -24,7 +24,6 @@ export class EmployeesUpdateComponent implements OnInit {
   constructor(private router: Router,private route: ActivatedRoute, private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
-    // this.header = this.id === "0"? 'Add Employee': 'Edit Employee';
     this.id = this.route.snapshot.paramMap.get('id');
     if(this.id !=0){
       this.GetbyId();
@@ -48,7 +47,6 @@ export class EmployeesUpdateComponent implements OnInit {
     }
     else{
       this.employeeService.add(form.value).subscribe(res => {
-      console.log('User created!')
       this.router.navigateByUrl("")})
     }
   }

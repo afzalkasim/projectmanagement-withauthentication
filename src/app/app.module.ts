@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmployeesComponent } from './employees/employees.component';
-import { EmployeesUpdateComponent } from './employees-update/employees-update.component';
-
+import { EmployeeManagementModule } from './employee-management/employee-management.module';
+import { ProjectManagementModule} from './project-management/project-management.module';
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeesComponent,
-    EmployeesUpdateComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule
+    EmployeeManagementModule,
+    ProjectManagementModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

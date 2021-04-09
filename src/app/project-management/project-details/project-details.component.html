@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <h2>Project details</h2>
+    <table class="table">
+        <thead>
+            <th>Id</th>
+            <th>Client Name</th>
+            <th>Project Name</th>
+            <th>Project type</th>
+            <th>Project description</th>
+            <th>Project Manager</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th></th>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let projectdetail of projectdetails">
+                <td>{{ projectdetail.id }}</td>
+                <td>{{ projectdetail.clientname }}</td>
+                <td>{{ projectdetail.projectname }}</td>
+                <td>{{ projectdetail.projecttype }}</td>
+                <td>{{ projectdetail.projectdescription}} </td>
+                <td>{{ projectdetail.projectmanager}} </td>
+                <td>{{ projectdetail.startdate}} </td>
+                <td>{{ projectdetail.enddate}} </td>
+
+                <td><a [routerLink]="['update/edit',projectdetail.id]" >Edit</a></td>
+                <td><button (click)="Delete(projectdetail.id)" class="btn btn-danger">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <a [routerLink]="['update/add/0']" class="btn btn-primary">Add Project</a>   
+</div>

@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <h2>{{header}}</h2>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group">
+            <label for="">Id</label>
+            <input type="text" class="form-control" [ngModel]="projectdetails.id" name="id">    
+        </div>
+        <div class="form-group">
+            <label for="">Client Name</label>
+            <input type="text" class="form-control" [ngModel]="projectdetails.clientname" name="clientname">    
+        </div>
+        <div class="form-group">
+            <label for="">Project Name</label>
+            <input type="text" class="form-control" [ngModel]="projectdetails.projectname" name="projectname">    
+        </div>
+        <div class="form-group">
+            <label for="">Project type</label>
+            <input type="text" class="form-control" [ngModel]="projectdetails.projecttype" name="projecttype">    
+        </div>
+        <div class="form-group">
+            <label for="">Project description</label>
+            <input type="text" class="form-control" [ngModel]="projectdetails.projectdescription" name="projectdescription">    
+        </div>
+        <div class="form-group">
+            <label for="">Project Manager</label>
+            <input type="text" class="form-control" [ngModel]="projectdetails.projectmanager" name="projectmanager">    
+        </div>
+        <div class="form-group">
+            <label for="">Start date</label>
+            <input type="date" class="form-control" [ngModel]="projectdetails.startdate" name="startdate">    
+        </div>
+        <div class="form-group">
+            <label for="">End date</label>
+            <input type="date" class="form-control" [ngModel]="projectdetails.enddate" name="enddate">    
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>    
+        </div>
+    </form>
+</div>
