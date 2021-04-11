@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
+import { EmployeesUpdateComponent } from '../employees-update/employees-update.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-employees',
@@ -10,7 +12,7 @@ import { EmployeeService } from '../../services/employee.service';
 export class EmployeesComponent implements OnInit {
   employees: Employee[];
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService,private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -25,5 +27,29 @@ export class EmployeesComponent implements OnInit {
     this.employeeService.delete(id).subscribe(data=>{this.getAll();
     });
   }
+  openDialog() {
+    const dialogRef = this.dialog.open(EmployeesUpdateComponent,{
+      width: '660px',
+      height: '560px',
+      data: {id:'0'}
 
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  editDialog(employeeid:any) {
+    const dialogRef = this.dialog.open(EmployeesUpdateComponent,{
+      width: '660px',
+      height: '560px',
+      data: {id:employeeid}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
+
+

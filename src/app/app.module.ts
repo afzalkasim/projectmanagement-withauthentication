@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeManagementModule } from './employee-management/employee-management.module';
 import { ProjectManagementModule} from './project-management/project-management.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +15,8 @@ import { ProjectManagementModule} from './project-management/project-management.
     BrowserModule,
     AppRoutingModule,
     EmployeeManagementModule,
-    ProjectManagementModule
+    ProjectManagementModule,
+    BrowserAnimationsModule
     
   ],
   providers: [],

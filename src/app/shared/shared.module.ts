@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { CommonModule } from '@angular/common';
     FormsModule, 
     HttpClientModule,
     ReactiveFormsModule,
+    MatDialogModule
    
   ],
   declarations: [
@@ -22,7 +24,8 @@ import { CommonModule } from '@angular/common';
   exports: [
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
     
   ],
   entryComponents: [

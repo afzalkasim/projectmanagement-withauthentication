@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { inject } from '@angular/core/testing';
 import { NgForm } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { EmployeesComponent } from '../employees/employees.component';
 
 @Component({
   selector: 'app-employees-update',
@@ -20,11 +23,11 @@ export class EmployeesUpdateComponent implements OnInit {
     contactNumber:"",
     location:""
   };
-
-  constructor(private router: Router,private route: ActivatedRoute, private employeeService: EmployeeService) {}
+  
+  constructor(private router: Router,private route: ActivatedRoute, private employeeService: EmployeeService,public dialogref: MatDialogRef<EmployeesComponent> ,@Inject(MAT_DIALOG_DATA) public data:any) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.data.id;
     if(this.id !=0){
       this.GetbyId();
       this.editmode=true;
@@ -43,11 +46,11 @@ export class EmployeesUpdateComponent implements OnInit {
   onSubmit(form: NgForm){
     if(this.editmode){
       this.employeeService.update(this.id,form.value).subscribe();
-      this.router.navigateByUrl("employee")
+      this.dialogref.close()
     }
     else{
-      this.employeeService.add(form.value).subscribe(res => {
-      this.router.navigateByUrl("employee")})
+      this.employeeService.add(form.value).subscribe()
+      this.dialogref.close()
     }
   }
 
