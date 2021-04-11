@@ -3,35 +3,35 @@
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <div class="form-group">
             <label for="">Id</label>
-            <input type="text" class="form-control" [ngModel]="projectdetails.id" name="id">    
+            <input type="text" class="form-control" [ngModel]="projectdetails.projectId" name="projectId">    
         </div>
         <div class="form-group">
             <label for="">Client Name</label>
-            <input type="text" class="form-control" [ngModel]="projectdetails.clientname" name="clientname">    
+            <input type="text" class="form-control" [ngModel]="projectdetails.clientName" name="clientName">    
         </div>
         <div class="form-group">
             <label for="">Project Name</label>
-            <input type="text" class="form-control" [ngModel]="projectdetails.projectname" name="projectname">    
+            <input type="text" class="form-control" [ngModel]="projectdetails.projectName" name="projectName">    
         </div>
         <div class="form-group">
             <label for="">Project type</label>
-            <input type="text" class="form-control" [ngModel]="projectdetails.projecttype" name="projecttype">    
+            <input type="text" class="form-control" [ngModel]="projectdetails.projectType" name="projectType">    
         </div>
         <div class="form-group">
             <label for="">Project description</label>
-            <input type="text" class="form-control" [ngModel]="projectdetails.projectdescription" name="projectdescription">    
+            <input type="text" class="form-control" [ngModel]="projectdetails.projectDescription" name="projectDescription">    
         </div>
         <div class="form-group">
             <label for="">Project Manager</label>
-            <input type="text" class="form-control" [ngModel]="projectdetails.projectmanager" name="projectmanager">    
+            <input type="text" class="form-control" [ngModel]="projectdetails.projectManager" name="projectManager">    
         </div>
         <div class="form-group">
             <label for="">Start date</label>
-            <input type="date" class="form-control" [ngModel]="projectdetails.startdate" name="startdate">    
+            <input type="date" class="form-control" [ngModel]="projectdetails.startDate" name="startDate">    
         </div>
         <div class="form-group">
             <label for="">End date</label>
-            <input type="date" class="form-control" [ngModel]="projectdetails.enddate" name="enddate">    
+            <input type="date" class="form-control" [ngModel]="projectdetails.endDate" name="endDate">    
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Save</button>    

@@ -1,10 +1,10 @@
 export class Project{
-    id :string;
-    clientname:string;
-    projectname:string;
-    projecttype: string;
-    projectdescription: string;
-    projectmanager:string;
-    startdate :string;
-    enddate:string;
+    projectId :string;
+    clientName:string;
+    projectName:string;
+    projectType: string;
+    projectDescription: string;
+    projectManager:string;
+    startDate :string;
+    endDate:string;
 }

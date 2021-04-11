@@ -14,10 +14,10 @@ export class EmployeesUpdateComponent implements OnInit {
   id: any;
   header: string;
   employee:Employee = {
-    id:"",
+    employeeId:"",
     name:"",
     email:"",
-    contactnumber:"",
+    contactNumber:"",
     location:""
   };
 
@@ -43,11 +43,11 @@ export class EmployeesUpdateComponent implements OnInit {
   onSubmit(form: NgForm){
     if(this.editmode){
       this.employeeService.update(this.id,form.value).subscribe();
-      this.router.navigateByUrl("")
+      this.router.navigateByUrl("employee")
     }
     else{
       this.employeeService.add(form.value).subscribe(res => {
-      this.router.navigateByUrl("")})
+      this.router.navigateByUrl("employee")})
     }
   }
 

@@ -14,14 +14,14 @@ export class ProjectUpdateComponent implements OnInit {
   id: any;
   header: string;
   projectdetails:Project = {
-    id:"",
-    clientname:"",
-    projectname:"",
-    projecttype:"",
-    projectdescription:"",
-    projectmanager:"",
-    startdate:"",
-    enddate:""
+    projectId:"",
+    clientName:"",
+    projectName:"",
+    projectType:"",
+    projectDescription:"",
+    projectManager:"",
+    startDate:"",
+    endDate:""
   };
 
   constructor(private router: Router,private route: ActivatedRoute, private projectService: ProjectService) {}
@@ -46,12 +46,13 @@ export class ProjectUpdateComponent implements OnInit {
   onSubmit(form: NgForm){
     if(this.editmode){
       this.projectService.update(this.id,form.value).subscribe();
-      this.router.navigateByUrl("pro")
+      this.router.navigateByUrl("project")
     }
     else{
       this.projectService.add(form.value).subscribe(res => {
-      this.router.navigateByUrl("pro")})
+      this.router.navigateByUrl("project")})
     }
+    console.log(form.value);
   }
 
 }

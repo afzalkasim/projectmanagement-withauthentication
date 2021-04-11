@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class EmployeeService {
-  private apiServer = "http://localhost:3000";
+  private apiServer = "http://localhost:8080/employee";
   
   httpOptions = {
     headers: new HttpHeaders({
@@ -19,18 +19,18 @@ export class EmployeeService {
 
 
   getAll():Observable<any[]>{
-    return this.httpclient.get<any[]>(this.apiServer + '/emp/');
+    return this.httpclient.get<any[]>(this.apiServer + '/getemployeelist');
   }
   add(employee: Employee):Observable<any>{
-    return this.httpclient.post<any>(this.apiServer + '/emp/', JSON.stringify(employee), this.httpOptions);
+    return this.httpclient.post<any>(this.apiServer + '/createemployee', JSON.stringify(employee), this.httpOptions);
   }
   update(id:any,employee:any):Observable<any>{
-    return this.httpclient.put<any>(this.apiServer + '/emp/' + id ,JSON.stringify(employee), this.httpOptions);
+    return this.httpclient.put<any>(this.apiServer + '/updateemployee/' + id ,JSON.stringify(employee), this.httpOptions);
   }
   getById(id:number):Observable<any> {
-    return this.httpclient.get<any>(this.apiServer + '/emp/' + id)
+    return this.httpclient.get<any>(this.apiServer + '/getemployeebyid/' + id)
   }
   delete(id:number){
-    return this.httpclient.delete<any>(this.apiServer + '/emp/' + id, this.httpOptions);
+    return this.httpclient.delete<any>(this.apiServer + '/deleteemployeebyid/' + id, this.httpOptions);
   }
 }

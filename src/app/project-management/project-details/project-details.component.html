@@ -15,17 +15,17 @@
         </thead>
         <tbody>
             <tr *ngFor="let projectdetail of projectdetails">
-                <td>{{ projectdetail.id }}</td>
-                <td>{{ projectdetail.clientname }}</td>
-                <td>{{ projectdetail.projectname }}</td>
-                <td>{{ projectdetail.projecttype }}</td>
-                <td>{{ projectdetail.projectdescription}} </td>
-                <td>{{ projectdetail.projectmanager}} </td>
-                <td>{{ projectdetail.startdate}} </td>
-                <td>{{ projectdetail.enddate}} </td>
+                <td>{{ projectdetail.projectId }}</td>
+                <td>{{ projectdetail.clientName }}</td>
+                <td>{{ projectdetail.projectName }}</td>
+                <td>{{ projectdetail.projectType }}</td>
+                <td>{{ projectdetail.projectDescription}} </td>
+                <td>{{ projectdetail.projectManager}} </td>
+                <td>{{ projectdetail.startDate}} </td>
+                <td>{{ projectdetail.endDate}} </td>
 
-                <td><a [routerLink]="['update/edit',projectdetail.id]" >Edit</a></td>
-                <td><button (click)="Delete(projectdetail.id)" class="btn btn-danger">Delete</button></td>
+                <td><a [routerLink]="['update/edit',projectdetail.projectId]" >Edit</a></td>
+                <td><button (click)="Delete(projectdetail.projectId)" class="btn btn-danger">Delete</button></td>
             </tr>
         </tbody>
     </table>

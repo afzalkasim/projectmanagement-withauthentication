@@ -4,9 +4,9 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 import { ProjectUpdateComponent } from './project-update/project-update.component';
 
 const routes: Routes = [
-  {path:"pro",component:  ProjectDetailsComponent},
-  {path:"pro/update/add/:id",component:  ProjectUpdateComponent},
-  {path:"pro/update/edit/:id",component:  ProjectUpdateComponent}
+  {path:"project",component:  ProjectDetailsComponent},
+  {path:"project/update/add/:id",component:  ProjectUpdateComponent},
+  {path:"project/update/edit/:id",component:  ProjectUpdateComponent}
 ];
 
 @NgModule({
