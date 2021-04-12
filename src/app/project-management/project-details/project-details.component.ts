@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteProjectComponent } from 'src/app/dialog-delete/delete-project/delete-project.component';
 import { Project } from '../../models/project';
 import { ProjectService } from '../../services/project.service';
+import { ProjectUpdateComponent } from '../project-update/project-update.component';
 
 
 @Component({
@@ -11,7 +14,7 @@ import { ProjectService } from '../../services/project.service';
 export class ProjectDetailsComponent implements OnInit {
   projectdetails: Project[];
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -27,6 +30,40 @@ export class ProjectDetailsComponent implements OnInit {
       this.projectService.delete(id).subscribe(data=>{this.getAll();
       });
     }
+    addDialog() {
+      const dialogRef = this.dialog.open(ProjectUpdateComponent,{
+        width: '660px',
+        height: '560px',
+        data: {id:'0'}
   
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
+    editDialog(employeeid:any) {
+      const dialogRef = this.dialog.open(ProjectUpdateComponent,{
+        width: '660px',
+        height: '560px',
+        data: {id:employeeid}
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
+    deleteDialog(projectid:any) {
+      const dialogRef = this.dialog.open(DeleteProjectComponent,{
+        width: '300px',
+        height: '200px',
+        data: {id:projectid}
+  
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
 
 }

@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { inject } from '@angular/core/testing';
 import { NgForm } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
@@ -24,7 +25,7 @@ export class EmployeesUpdateComponent implements OnInit {
     location:""
   };
   
-  constructor(private router: Router,private route: ActivatedRoute, private employeeService: EmployeeService,public dialogref: MatDialogRef<EmployeesComponent> ,@Inject(MAT_DIALOG_DATA) public data:any) {}
+  constructor(private router: Router,private route: ActivatedRoute, private employeeService: EmployeeService,public dialogref: MatDialogRef<EmployeesComponent> ,@Inject(MAT_DIALOG_DATA) public data:any, public snackbar:MatSnackBar) {}
 
   ngOnInit(): void {
     this.id = this.data.id;
@@ -46,13 +47,17 @@ export class EmployeesUpdateComponent implements OnInit {
   onSubmit(form: NgForm){
     if(this.editmode){
       this.employeeService.update(this.id,form.value).subscribe();
+      console.log(form.value)
+      this.snackbar.open('successfully updated')
       this.dialogref.close()
     }
     else{
       this.employeeService.add(form.value).subscribe()
+      this.snackbar.open('successfully added')
       this.dialogref.close()
     }
   }
 
 }
+
 

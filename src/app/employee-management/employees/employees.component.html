@@ -19,9 +19,9 @@
                 <td>{{ employee.location}} </td>
 
                 <td><button (click)="editDialog(employee.employeeId)" class="btn btn-primary">Edit</button></td>
-                <td><button (click)="Delete(employee.employeeId)" class="btn btn-danger">Delete</button></td>
+                <td><button (click)="deleteDialog(employee.employeeId)" class="btn btn-danger">Delete</button></td>
             </tr>
         </tbody>
     </table>
-    <button (click)="openDialog()"class="btn btn-primary">Add Employee</button>   
+    <button (click)="addDialog()"class="btn btn-primary">Add Employee</button>   
 </div>

@@ -3,6 +3,7 @@ import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
 import { EmployeesUpdateComponent } from '../employees-update/employees-update.component';
 import {MatDialog} from '@angular/material/dialog';
+import { DeleteEmployeeComponent } from 'src/app/dialog-delete/delete-employee/delete-employee.component';
 
 @Component({
   selector: 'app-employees',
@@ -23,11 +24,11 @@ export class EmployeesComponent implements OnInit {
       this.employees=data;
     })
   }
-  Delete(id:any){
-    this.employeeService.delete(id).subscribe(data=>{this.getAll();
-    });
-  }
-  openDialog() {
+  // Delete(id:any){
+  //   this.employeeService.delete(id).subscribe(data=>{this.getAll();
+  //   });
+  // }
+  addDialog() {
     const dialogRef = this.dialog.open(EmployeesUpdateComponent,{
       width: '660px',
       height: '560px',
@@ -44,6 +45,18 @@ export class EmployeesComponent implements OnInit {
       width: '660px',
       height: '560px',
       data: {id:employeeid}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  deleteDialog(employeeid:any) {
+    const dialogRef = this.dialog.open(DeleteEmployeeComponent,{
+      width: '300px',
+      height: '200px',
+      data: {id:employeeid}
+
     });
 
     dialogRef.afterClosed().subscribe(result => {

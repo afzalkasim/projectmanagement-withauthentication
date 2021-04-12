@@ -24,10 +24,10 @@
                 <td>{{ projectdetail.startDate}} </td>
                 <td>{{ projectdetail.endDate}} </td>
 
-                <td><a [routerLink]="['update/edit',projectdetail.projectId]" >Edit</a></td>
-                <td><button (click)="Delete(projectdetail.projectId)" class="btn btn-danger">Delete</button></td>
+                <td><button (click)="editDialog(projectdetail.projectId)" class="btn btn-primary">Edit</button></td>
+                <td><button (click)="deleteDialog(projectdetail.projectId)" class="btn btn-danger">Delete</button></td>
             </tr>
         </tbody>
     </table>
-    <a [routerLink]="['update/add/0']" class="btn btn-primary">Add Project</a>   
+    <button (click)="addDialog()"class="btn btn-primary">Add Project</button> 
 </div>

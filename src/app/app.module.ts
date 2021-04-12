@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { EmployeeManagementModule } from './employee-management/employee-management.module';
 import { ProjectManagementModule} from './project-management/project-management.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeleteEmployeeComponent } from './dialog-delete/delete-employee/delete-employee.component';
 @NgModule({
   declarations: [
     AppComponent,
+    DeleteEmployeeComponent,
     
   ],
   imports: [
