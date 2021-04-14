@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Project } from 'src/app/models/project';
 import { ProjectService } from 'src/app/services/project.service';
 
+
 @Component({
   selector: 'app-delete-project',
   templateUrl: './delete-project.component.html',

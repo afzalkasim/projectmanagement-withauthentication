@@ -1,33 +1,54 @@
-<div class="container mt-5">
-    <h2>Project details</h2>
-    <table class="table">
-        <thead>
-            <th>Id</th>
-            <th>Client Name</th>
-            <th>Project Name</th>
-            <th>Project type</th>
-            <th>Project description</th>
-            <th>Project Manager</th>
-            <th>Start date</th>
-            <th>End date</th>
-            <th></th>
-            <th></th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let projectdetail of projectdetails">
-                <td>{{ projectdetail.projectId }}</td>
-                <td>{{ projectdetail.clientName }}</td>
-                <td>{{ projectdetail.projectName }}</td>
-                <td>{{ projectdetail.projectType }}</td>
-                <td>{{ projectdetail.projectDescription}} </td>
-                <td>{{ projectdetail.projectManager}} </td>
-                <td>{{ projectdetail.startDate}} </td>
-                <td>{{ projectdetail.endDate}} </td>
+<table mat-table class="mat-elevation-z8" [dataSource]="projectdetails">
 
-                <td><button (click)="editDialog(projectdetail.projectId)" class="btn btn-primary">Edit</button></td>
-                <td><button (click)="deleteDialog(projectdetail.projectId)" class="btn btn-danger">Delete</button></td>
-            </tr>
-        </tbody>
-    </table>
-    <button (click)="addDialog()"class="btn btn-primary">Add Project</button> 
+  
+    <ng-container matColumnDef="clientName">
+      <th mat-header-cell *matHeaderCellDef> Client Name </th>
+      <td mat-cell *matCellDef="let projectdetail"> {{projectdetail.clientName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="projectName">
+      <th mat-header-cell *matHeaderCellDef> Project Name </th>
+      <td mat-cell *matCellDef="let projectdetail"> {{projectdetail.projectName}} </td>
+    </ng-container>
+ 
+    <ng-container matColumnDef="projectType">
+      <th mat-header-cell *matHeaderCellDef> Project Type </th>
+      <td mat-cell *matCellDef="let projectdetail"> {{projectdetail.projectType}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="projectDescription">
+      <th mat-header-cell *matHeaderCellDef> Project Description </th>
+      <td mat-cell *matCellDef="let projectdetail"> {{projectdetail.projectDescription}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="projectManager">
+        <th mat-header-cell *matHeaderCellDef> Project Manager </th>
+        <td mat-cell *matCellDef="let projectdetail"> {{projectdetail.projectManager}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef> Start date </th>
+        <td mat-cell *matCellDef="let projectdetail"> {{projectdetail.startDate | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="endDate">
+        <th mat-header-cell *matHeaderCellDef> End date </th>
+        <td mat-cell *matCellDef="let projectdetail"> {{projectdetail.endDate | date}} </td>
+      </ng-container>
+
+      <ng-container  matColumnDef="editDialog">
+        <th mat-header-cell *matHeaderCellDef></th>
+      <td  mat-cell *matCellDef="let projectdetail"><button mat-raised-button (click)="editDialog(projectdetail.projectId)" color="primary">Edit<mat-icon>edit_note</mat-icon></button></td>
+      </ng-container>
+
+      <ng-container  matColumnDef="deleteDialog">
+        <th mat-header-cell *matHeaderCellDef></th>
+      <td  mat-cell *matCellDef="let projectdetail"><button mat-raised-button (click)="deleteDialog(projectdetail.projectId)" color="warn">Delete<mat-icon>delete_forever</mat-icon></button></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div class="button mt-3 ml-2">
+  <button mat-raised-button (click)="addDialog()" color="primary">Add Project</button>
 </div>

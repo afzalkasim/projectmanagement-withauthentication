@@ -13,11 +13,12 @@ import { ProjectUpdateComponent } from '../project-update/project-update.compone
 })
 export class ProjectDetailsComponent implements OnInit {
   projectdetails: Project[];
-
+  dataSource:any
   constructor(private projectService: ProjectService, private dialog:MatDialog) { }
-
+  displayedColumns = ['clientName','projectName','projectType','projectDescription','projectManager','startDate','endDate','editDialog','deleteDialog']
   ngOnInit(): void {
     this.getAll();
+    this.dataSource=this.projectdetails;
   }
   getAll(){
     this.projectService.getAll().subscribe((data: Project[])=>{
@@ -42,11 +43,11 @@ export class ProjectDetailsComponent implements OnInit {
         console.log(`Dialog result: ${result}`);
       });
     }
-    editDialog(employeeid:any) {
+    editDialog(projectid:any) {
       const dialogRef = this.dialog.open(ProjectUpdateComponent,{
         width: '660px',
         height: '560px',
-        data: {id:employeeid}
+        data: {id:projectid}
       });
   
       dialogRef.afterClosed().subscribe(result => {

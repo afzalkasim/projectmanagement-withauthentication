@@ -1,40 +1,91 @@
 <div class="container mt-5">
     <h2>{{header}}</h2>
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-        <!-- <div class="form-group">
-            <label for="">Id</label>
-            <input type="text" class="form-control" [ngModel]="projectdetails.projectId" name="projectId">    
-        </div> -->
-        <div class="form-group">
-            <label for="">Client Name</label>
-            <input type="text" class="form-control" [ngModel]="projectdetails.clientName" name="clientName">    
+    <form [formGroup]="form" (ngSubmit)="form.valid && onSubmit(form)" class="form-container" >
+        <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Client Name</mat-label>
+            <input matInput formControlName="clientName">
+            <mat-error *ngIf="form.controls['clientName'].hasError('required')">
+                Enter client Name
+              </mat-error>
+              <mat-error *ngIf="form.controls['clientName'].hasError('pattern')">
+                Enter only alphabets
+              </mat-error>
+        </mat-form-field >
         </div>
-        <div class="form-group">
-            <label for="">Project Name</label>
-            <input type="text" class="form-control" [ngModel]="projectdetails.projectName" name="projectName">    
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Project Name</mat-label>
+            <input matInput formControlName="projectName">
+            <mat-error *ngIf="form.controls['projectName'].hasError('required')">
+                Enter client Name
+              </mat-error>
+              <mat-error *ngIf="form.controls['projectName'].hasError('pattern')">
+                Enter only alphabets
+              </mat-error>
+          </mat-form-field>
         </div>
-        <div class="form-group">
-            <label for="">Project type</label>
-            <input type="text" class="form-control" [ngModel]="projectdetails.projectType" name="projectType">    
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Project type</mat-label>
+                <input matInput formControlName="projectType">
+                <mat-error *ngIf="form.controls['projectType'].hasError('required')">
+                    Enter client Name
+                  </mat-error>
+                  <mat-error *ngIf="form.controls['projectType'].hasError('pattern')">
+                    Enter only alphabets
+                  </mat-error>
+            </mat-form-field>
+            </div>
+            <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Project description</mat-label>
+                <textarea matInput formControlName="projectDescription"></textarea>
+                <mat-error *ngIf="!form.controls['projectDescription'].valid && form.controls['projectDescription'].touched">
+                    Enter project description
+                </mat-error>
+            </mat-form-field>
+            </div>
+            <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Project Manager</mat-label>
+                <input matInput formControlName="projectManager">
+                <mat-error *ngIf="form.controls['projectManager'].hasError('required')">
+                    Enter client Name
+                  </mat-error>
+                  <mat-error *ngIf="form.controls['projectManager'].hasError('pattern')">
+                    Enter only alphabets
+                  </mat-error>
+            </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Start date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="startDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="!form.controls['startDate'].valid && form.controls['startDate'].touched">
+                        Select start date
+                      </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+            <mat-form-field appearance="outline">
+                <mat-label>End date</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="endDate">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+                <mat-error *ngIf="!form.controls['endDate'].valid && form.controls['endDate'].touched">
+                    Select end date
+                  </mat-error>
+            </mat-form-field>
         </div>
-        <div class="form-group">
-            <label for="">Project description</label>
-            <input type="text" class="form-control" [ngModel]="projectdetails.projectDescription" name="projectDescription">    
-        </div>
-        <div class="form-group">
-            <label for="">Project Manager</label>
-            <input type="text" class="form-control" [ngModel]="projectdetails.projectManager" name="projectManager">    
-        </div>
-        <div class="form-group">
-            <label for="">Start date</label>
-            <input type="date" class="form-control" [ngModel]="projectdetails.startDate" name="startDate">    
-        </div>
-        <div class="form-group">
-            <label for="">End date</label>
-            <input type="date" class="form-control" [ngModel]="projectdetails.endDate" name="endDate">    
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Save</button>    
+        <div class="button">
+        <button mat-raised-button color="primary">Save</button>
         </div>
     </form>
+    <div class="button mt-2">
+        <button mat-raised-button color="warn" (click)="cancel()" >Cancel</button>    
+    </div>
 </div>
+
