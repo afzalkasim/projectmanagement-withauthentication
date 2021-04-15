@@ -1,5 +1,4 @@
     <mat-card>
-    <!-- <h2>Login </h2> -->
     <mat-card-header>
         <mat-card-title>Login</mat-card-title>
     </mat-card-header>
@@ -7,8 +6,8 @@
         <div>
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput formControlName="email">
-            <mat-error type="email" *ngIf="form.controls['email'].hasError('required')">
+            <input type="email" matInput formControlName="email">
+            <mat-error *ngIf="form.controls['email'].hasError('required')">
                 Enter email
               </mat-error>
               <mat-error *ngIf="form.controls['email'].hasError('pattern')">
@@ -24,7 +23,7 @@
                 Enter password
               </mat-error>
               <!-- <mat-error *ngIf="form.controls['password'].hasError('pattern')">
-                Enter only alphabets
+            
               </mat-error> -->
           </mat-form-field>
         </div>
@@ -35,7 +34,7 @@
     </form>
     
     <div class="button mt-2">Dont have an account?
-        <button mat-button color="primary">Register</button>    
+        <a routerLink="/register" >Register</a>
     </div>
 </mat-card>
 

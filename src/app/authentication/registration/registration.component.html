@@ -1,1 +1,71 @@
-<p>registration works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="form" (ngSubmit)="form.valid && onSubmit(form)" class="form-container" >
+        <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email">
+            <mat-error type="email" *ngIf="form.controls['email'].hasError('required')">
+                Enter email
+              </mat-error>
+              <mat-error *ngIf="form.controls['email'].hasError('pattern')">
+                Enter valid email
+              </mat-error>
+        </mat-form-field >
+        </div>
+
+        <div>
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName">
+                <mat-error *ngIf="form.controls['firstName'].hasError('required')">
+                    Enter first name
+                  </mat-error>
+                  <mat-error *ngIf="form.controls['firstName'].hasError('pattern')">
+                    Enter only alphabets
+                  </mat-error>
+            </mat-form-field >
+            </div>
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName">
+                    <mat-error  *ngIf="form.controls['lastName'].hasError('required')">
+                        Enter last name
+                      </mat-error>
+                      <mat-error *ngIf="form.controls['lastName'].hasError('pattern')">
+                        Enter only alphabets
+                      </mat-error>
+            </mat-form-field >
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+            <mat-error *ngIf="form.controls['password'].hasError('required')">
+                Enter password
+              </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Confirm Password</mat-label>
+              <input type="password" matInput formControlName="confirmPassword">
+              <mat-error *ngIf="form.controls['confirmPassword'].hasError('required')">
+                  Enter confirm password
+                </mat-error>
+                <mat-error *ngIf="form.controls['confirmPassword'].hasError('ConfirmedValidator')">
+                  Enter correct password
+                </mat-error>
+            </mat-form-field>
+          </div>
+
+        <div class="button">
+        <button mat-raised-button color="primary">Register</button>
+        </div>
+    </form>
+</mat-card>
