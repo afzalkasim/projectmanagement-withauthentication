@@ -1,0 +1,42 @@
+    <mat-card>
+    <!-- <h2>Login </h2> -->
+    <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="form" (ngSubmit)="form.valid && onSubmit(form)" class="form-container" >
+        <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+            <mat-error type="email" *ngIf="form.controls['email'].hasError('required')">
+                Enter email
+              </mat-error>
+              <mat-error *ngIf="form.controls['email'].hasError('pattern')">
+                Enter valid email
+              </mat-error>
+        </mat-form-field >
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+            <mat-error *ngIf="form.controls['password'].hasError('required')">
+                Enter password
+              </mat-error>
+              <!-- <mat-error *ngIf="form.controls['password'].hasError('pattern')">
+                Enter only alphabets
+              </mat-error> -->
+          </mat-form-field>
+        </div>
+
+        <div class="button">
+        <button mat-raised-button color="primary">Login</button>
+        </div>
+    </form>
+    
+    <div class="button mt-2">Dont have an account?
+        <button mat-button color="primary">Register</button>    
+    </div>
+</mat-card>
+
+

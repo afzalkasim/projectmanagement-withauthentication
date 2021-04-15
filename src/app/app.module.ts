@@ -7,6 +7,7 @@ import { EmployeeManagementModule } from './employee-management/employee-managem
 import { ProjectManagementModule} from './project-management/project-management.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogDeleteModule } from './dialog-delete/dialog-delete.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DialogDeleteModule } from './dialog-delete/dialog-delete.module';
     EmployeeManagementModule,
     ProjectManagementModule,
     BrowserAnimationsModule,
-    DialogDeleteModule
+    DialogDeleteModule,
+    AuthenticationModule
     
   ],
   providers: [],

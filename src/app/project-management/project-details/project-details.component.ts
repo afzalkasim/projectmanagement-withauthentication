@@ -31,18 +31,18 @@ export class ProjectDetailsComponent implements OnInit {
       this.projectService.delete(id).subscribe(data=>{this.getAll();
       });
     }
-    addDialog() {
-      const dialogRef = this.dialog.open(ProjectUpdateComponent,{
-        width: '660px',
-        height: '560px',
-        data: {id:'0'}
+    // addDialog() {
+    //   const dialogRef = this.dialog.open(ProjectUpdateComponent,{
+    //     width: '660px',
+    //     height: '560px',
+    //     data: {id:'0'}
   
-      });
+    //   });
   
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
-    }
+    //   dialogRef.afterClosed().subscribe(result => {
+    //     console.log(`Dialog result: ${result}`);
+    //   });
+    // }
     editDialog(projectid:any) {
       const dialogRef = this.dialog.open(ProjectUpdateComponent,{
         width: '660px',
@@ -52,6 +52,7 @@ export class ProjectDetailsComponent implements OnInit {
   
       dialogRef.afterClosed().subscribe(result => {
         console.log(`Dialog result: ${result}`);
+        this.getAll()
       });
     }
     deleteDialog(projectid:any) {
@@ -64,6 +65,7 @@ export class ProjectDetailsComponent implements OnInit {
   
       dialogRef.afterClosed().subscribe(result => {
         console.log(`Dialog result: ${result}`);
+        this.getAll()
       });
     }
 

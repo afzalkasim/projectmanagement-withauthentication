@@ -19,6 +19,7 @@ export class DeleteProjectComponent implements OnInit {
     this.id = this.data.id;
     this.getAll()
   }
+
   getAll(){
     this.projectService.getAll().subscribe((data: Project[])=>{
       console.log(data);

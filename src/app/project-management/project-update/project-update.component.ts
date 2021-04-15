@@ -65,10 +65,9 @@ export class ProjectUpdateComponent implements OnInit {
       this.dialogref.close()
     }
     else{
-      this.projectService.add(form.value).subscribe()
-      this.snackbar.open('successfully added')
+      this.projectService.add(form.value).subscribe();
+      this.snackbar.open('successfully added');
       this.dialogref.close()
-
     }
     console.log(form.value);
   }
