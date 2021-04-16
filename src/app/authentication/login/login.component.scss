@@ -6,9 +6,15 @@
     margin-top: 7rem;
 }
 .mat-form-field{
-    border-width: 50%;
     width: 100%;
 }
+::ng-deep .mat-form-field {
+
+  .mat-form-field-label {
+      color: rgba(0, 0, 0, 0.829);
+  }
+}
+
 .mat-card-header{
   justify-content: center;
 //   background: #7F00FF; 

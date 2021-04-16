@@ -46,6 +46,15 @@ public class EmployeeController {
     public String deleteEmployee(@PathVariable(value="id") long id) {
     	return employeeService.deleteEmployee(id);
     }
+    
+    @PostMapping("/registeremployee")
+    public Employee registerEmployee(@RequestBody Employee employee) throws Exception {
+    	return employeeService.registerEmployee(employee);
+    }
+    @PostMapping("/employeelogin")
+    public Employee loginEmployee(@RequestBody Employee employee) throws Exception {
+    	return employeeService.loginEmployee(employee);
+    }
 
    
 }

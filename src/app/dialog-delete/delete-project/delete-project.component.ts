@@ -30,7 +30,10 @@ export class DeleteProjectComponent implements OnInit {
   delete(id:any){
     this.projectService.delete(id).subscribe(data=>{this.getAll();
   });
-  this.snackbar.open('successfully deleted')
+  this.snackbar.open('successfully deleted',' ', {
+    duration: 3000,
+
+  });
   this.dialogref.close()
 }
  cancelbutton(){

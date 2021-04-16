@@ -33,4 +33,10 @@ export class EmployeeService {
   delete(id:number){
     return this.httpclient.delete<any>(this.apiServer + '/deleteemployeebyid/' + id, this.httpOptions);
   }
+  login(employee: Employee):Observable<any>{
+    return this.httpclient.post<any>(this.apiServer + '/employeelogin', JSON.stringify(employee), this.httpOptions);
+  }
+  register(employee: Employee):Observable<any>{
+    return this.httpclient.post<any>(this.apiServer + '/registeremployee', JSON.stringify(employee), this.httpOptions);
+  }
 }

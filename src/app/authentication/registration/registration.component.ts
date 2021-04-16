@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { EmployeeService } from 'src/app/services/employee.service';
 import { ConfirmedValidator } from '../../shared/util';
 
 @Component({
@@ -9,9 +12,10 @@ import { ConfirmedValidator } from '../../shared/util';
 })
 export class RegistrationComponent implements OnInit {
   form: FormGroup;
+  msg:string;
   
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _fb: FormBuilder, private employeeService: EmployeeService, private router: Router, public snackbar:MatSnackBar) { }
   
 
   ngOnInit(): void {
@@ -25,8 +29,23 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit(form:any){
+    this.employeeService.register(form.value).subscribe((data)=>{
+      console.log("success"), 
+      this.snackbar.open('Registered successfully',' ', {
+        duration: 3000,
+        
+   
+      });
+      this.router.navigateByUrl("/login");
+      
+    }, err=>{
+      console.log("exception occured");
+      this.msg="This email is already existed";
 
+    })
+    
   }
+  
   passwordErrorMatcher = {
     isErrorState: (control: FormControl, form: FormGroupDirective): boolean => {
       const controlInvalid = control.touched && control.invalid;

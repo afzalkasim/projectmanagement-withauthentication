@@ -19,10 +19,12 @@ export class EmployeesUpdateComponent implements OnInit {
   header: string;
   employee:Employee = {
     employeeId:"",
-    name:"",
+    firstName:"",
+    lastName:"",
     email:"",
     contactNumber:"",
-    location:""
+    location:"",
+    password:""
   };
   
   constructor(private router: Router,private route: ActivatedRoute, private employeeService: EmployeeService,public dialogref: MatDialogRef<EmployeesComponent> ,@Inject(MAT_DIALOG_DATA) public data:any, public snackbar:MatSnackBar) {}
@@ -48,12 +50,18 @@ export class EmployeesUpdateComponent implements OnInit {
     if(this.editmode){
       this.employeeService.update(this.id,form.value).subscribe();
       console.log(form.value)
-      this.snackbar.open('successfully updated')
+      this.snackbar.open('successfully updated',' ', {
+        duration: 3000,
+   
+      });
       this.dialogref.close()
     }
     else{
       this.employeeService.add(form.value).subscribe()
-      this.snackbar.open('successfully added')
+      this.snackbar.open('successfully added',' ', {
+        duration: 3000,
+   
+      });
       this.dialogref.close()
     }
   }

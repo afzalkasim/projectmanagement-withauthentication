@@ -61,12 +61,18 @@ export class ProjectUpdateComponent implements OnInit {
     
     if(this.editmode){
       this.projectService.update(this.id,form.value).subscribe();
-      this.snackbar.open('successfully updated')
+      this.snackbar.open('successfully updated',' ', {
+        duration: 3000,
+   
+      });
       this.dialogref.close()
     }
     else{
       this.projectService.add(form.value).subscribe();
-      this.snackbar.open('successfully added');
+      this.snackbar.open('successfully added',' ', {
+        duration: 3000,
+   
+      });
       this.dialogref.close()
     }
     console.log(form.value);

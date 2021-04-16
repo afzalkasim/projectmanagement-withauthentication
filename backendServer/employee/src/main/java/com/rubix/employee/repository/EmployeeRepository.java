@@ -9,4 +9,6 @@ import com.rubix.employee.domain.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee, Long>{
 
 	Employee findByEmployeeId(long id);
+	Employee findByEmail(String email);
+	Employee findByEmailAndPassword(String email, String password);
 }

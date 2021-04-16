@@ -4,6 +4,7 @@
     </mat-card-header>
     <form [formGroup]="form" (ngSubmit)="form.valid && onSubmit(form)" class="form-container" >
         <div>
+          <div style="color: red;">{{msg}}</div>
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
             <input type="email" matInput formControlName="email">
